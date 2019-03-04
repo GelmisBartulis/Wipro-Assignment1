@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!--- Defining meta information for the page -->
+
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Assignment 1">
@@ -7,10 +9,13 @@
 <meta name="author" content="Gelmis Bartulis">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!--- Relating the stylesheet -->
 <link rel="stylesheet" type="text/css" href="styles.css">
 
+<!--- Linking Google fonts --> 
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
 
+<!--- Link for jQuery scripts for animations and form processing -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <title> Assignment 1 </title>
@@ -20,9 +25,16 @@
 
 <body>
 
+	<!--- The whole web content belongs to this DIV -->
 	<div class="mainContent">
 
+
 		<h3> Please fill in the form below </h1>
+
+		<!--- A form that allows for details to be processed 				-->
+ 		<!--- When user enters the details and clicks submit, a script (run below) 	-->
+		<!--- allows to add (cache) all the details submitted within the form 		-->
+		<!--- to be reused and shown within the textarea and the user input fields  	-->
 
 		<form class="form-inline">
 			<label fname"> First name: </label>
@@ -51,10 +63,15 @@
   			<button id="submit" type="button" value="Submit">Submit</button>
 		</form>
 
+
+<!--- Script below is a jQuery scirpt used for caching specific details within the web browser (creating cookies)  -->
+
 <script>
 
  $(document).ready(function(){
     
+
+<!--- Creating and allocating memory for the objects to validated within the browser's memory -->
 
 $("#submit").click(function () {
 	localStorage.setItem('fname', $('#fname').val());
@@ -69,6 +86,10 @@ $("#submit").click(function () {
 	
 });
 
+
+<!--- Displaying items within the text area -->
+<!--- Chaning the color of the input string -->
+<!--- And also placing them within the input fields -->
 
 showVariables = function(){
 	
