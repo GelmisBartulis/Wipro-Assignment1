@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Assignment 1">
+<meta name="keywords" content="HTML,CSS,jQuery,JavaScript">
+<meta name="author" content="Gelmis Bartulis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<title> Assignment 1 </title>
+
+</head>
+
+
+<body>
+
+	<div class="mainContent">
+
+		<h3> Please fill in the form below </h1>
+
+		<form class="form-inline">
+			<label fname"> First name: </label>
+			<input id="fname" type="text" name="fname" placeholder="e.g. John" align="right" required> <br>
+
+			<label for="lname"> Last name: </label>
+			<input id="lname" type="text" name="lname" placeholder="e.g. Johnny"  required><br>
+
+			<label for="email"> Email: </label>
+			<input id="email" type="email" style="margin-left: 36px;" placeholder="e.g. johnny@johnson.com" name="email" required><br>
+
+			<label for="dob"> D.O.B </label>
+			<input id="dob" type="date" style="margin-left: 42px;" name="dob" ><br><br>
+
+
+			<label for="gender"> Please select gender</label><br>
+			<input class="gen" type="radio" class="radio" name="gender" value="male"> Male<br>
+			<input class="gen" type="radio" class="radio" name="gender" value="female"> Female<br>
+			<input class="gen" type="radio" class="radio" name="gender" value="other"> Other <br>
+
+			<br>
+
+			<textarea style="text-align:center;"cols=40 rows=10 id="output"></textarea>
+
+
+  			<button id="submit" type="button" value="Submit">Submit</button>
+		</form>
+
+<script>
+
+ $(document).ready(function(){
+    
+
+$("#submit").click(function () {
+	localStorage.setItem('fname', $('#fname').val());
+	localStorage.setItem('lname', $('#lname').val());
+	localStorage.setItem('email', $('#email').val());
+	localStorage.setItem('dob', $('#dob').val());
+	localStorage.setItem('gen', $("input[name='gender']:checked").val());
+
+	alert("Variables have been placed to localStorage");
+	
+	showVariables();
+	
+});
+
+
+showVariables = function(){
+	
+
+	if(localStorage.getItem('fname') !== null)
+		$('#output').text("The details shown below have been recorded and put back in the text fields \n \n " + 
+			"Name: " + localStorage.getItem('fname') + "\n" + 
+			"Surname: " + localStorage.getItem('lname') + "\n" + 
+			"Email: " + localStorage.getItem('email') + "\n" + 
+			"Date of birth: " + localStorage.getItem('dob') + "\n" +
+			"Gender: " + localStorage.getItem('gen') + "\n" 
+		);
+		
+		$('#fname').css({ 'color': 'red', 'font-size': '110%' });
+		$('#lname').css({ 'color': 'red', 'font-size': '110%' });
+		$('#email').css({ 'color': 'red', 'font-size': '110%' });
+		$('#dob').css({ 'color': 'red', 'font-size': '110%' });
+		$('#gen').css({ 'color': 'red', 'font-size': '110%' });
+
+		$('#fname').text(localStorage.getItem('fname'));
+		$('#lname').text(localStorage.getItem('lname'));
+		$('#email').text(localStorage.getItem('email'));
+		$('#dob').text(localStorage.getItem('dob'));
+		$('#gen').check(localStorage.getItem('gen'));
+}
+
+});
+
+</script>
+	</div>
+
+</body>
+</html>

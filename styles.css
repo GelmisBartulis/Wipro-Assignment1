@@ -1,0 +1,95 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+
+body {
+	background-color: #36BCFE;
+	color: #FFF;
+	font-family: 'Raleway', sans-serif;
+	text-align: justified;
+}
+
+.mainContent {
+	border: 2px outset #016698;
+	border-radius: 10px;
+	border-top: 1px outset #016698;
+	border-left: 1px outset #016698;
+	box-shadow: 5px 30px 80px 10px #00334c;
+	background-color: #01aafe;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	padding: 50px;
+	margin-top: 100px;
+}
+
+.mainContent form input {
+	margin-top: 10px;
+	width: 125px;
+}
+
+#submit {
+	margin-top: 40px;
+	border-radius: 5px;
+	border: 1px solid #787878;
+	background-color: transparent;
+	padding: 10px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	width: 100%;
+	box-shadow: 3px 3px 8px transparent;
+	transition: 0.5s;
+	text-align: center;
+	align-content: center;
+	horizontal-align: middle;
+	vertical-align: middle;
+}
+
+
+#submit:hover {
+	border: 1px outset #404040;
+	background-color: #ff9999;
+	box-shadow: 3px 3px 8px #00334c;
+	cursor: pointer;s
+	width: 100%;
+	transition: 0.5s;
+}
+
+.form-inline { 
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+} 	
+
+.radio {
+	width: 15px !important;
+	height: 20px;
+	padding: 20px;
+}
