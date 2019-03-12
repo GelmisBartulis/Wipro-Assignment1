@@ -1,22 +1,35 @@
 <!DOCTYPE html>
+<html>
 
 <!--- Defining meta information for the page -->
 
 <head>
+<!--    Type of characters used within the website   -->
 <meta charset="UTF-8">
+    
+<!--    Description of the content within the website  -->
 <meta name="description" content="Assignment 1">
+    
+<!--    Keywords for SEO   -->
 <meta name="keywords" content="HTML,CSS,jQuery,JavaScript">
+    
+<!--    The person who wrote the website and it's content  -->
 <meta name="author" content="Gelmis Bartulis">
+    
+<!--    Width compatibility for different plaforms with different screens   -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+<!--- Link for jQuery scripts for animations and form processing -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/script.js" ></script>
 
 <!--- Relating the stylesheet -->
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <!--- Linking Google fonts --> 
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
 
-<!--- Link for jQuery scripts for animations and form processing -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <title> Assignment 1 </title>
 
@@ -26,97 +39,52 @@
 <body>
 
 	<!--- The whole web content belongs to this DIV -->
-	<div class="mainContent">
+	<div id="mainContent">
 
-
-		<h3> Please fill in the form below </h1>
+        <!--  Content heading      -->
+		<h3> Please fill in the form below </h3>
 
 		<!--- A form that allows for details to be processed 				-->
  		<!--- When user enters the details and clicks submit, a script (run below) 	-->
 		<!--- allows to add (cache) all the details submitted within the form 		-->
 		<!--- to be reused and shown within the textarea and the user input fields  	-->
 
-		<form class="form-inline">
-			<label fname"> First name: </label>
-			<input id="fname" type="text" name="fname" placeholder="e.g. John" align="right" required> <br>
+		<form id="formInline" onsubmit="resultsFun(); return false">
+			<label for="fname"> First name: </label>
+			<input id="fname" type="text" name="fname" placeholder="e.g. John" align="right"> <br>
 
 			<label for="lname"> Last name: </label>
-			<input id="lname" type="text" name="lname" placeholder="e.g. Johnny"  required><br>
+			<input id="lname" type="text" name="lname" placeholder="e.g. Johnny" ><br>
 
 			<label for="email"> Email: </label>
-			<input id="email" type="email" style="margin-left: 36px;" placeholder="e.g. johnny@johnson.com" name="email" required><br>
+            <input id="email" type="text" style="margin-left: 36px;" placeholder="e.g. example@gmail.com" name="email" > <img src="images/logo.png" id="emailImg"><br>
 
 			<label for="dob"> D.O.B </label>
-			<input id="dob" type="date" style="margin-left: 42px;" name="dob" ><br><br>
-
-
-			<label for="gender"> Please select gender</label><br>
-			<input class="gen" type="radio" class="radio" name="gender" value="male"> Male<br>
-			<input class="gen" type="radio" class="radio" name="gender" value="female"> Female<br>
-			<input class="gen" type="radio" class="radio" name="gender" value="other"> Other <br>
-
+			<input id="dob" type="date" max="2010-01-31" style="margin-left: 42px;" name="dob" ><br><br>
+            
+            <div id="formButtons">
+                <label for="gen" id="labelGen"> Please select gender</label>
+                <br>
+                <br>
+                <input type="radio" class="radio" name="gender" value="male"> Male 
+                <input type="radio" class="radio" name="gender" value="female"> Female
+                <input type="radio" class="radio" name="gender" value="other"> Other <br>
+            </div>
 			<br>
 
-			<textarea style="text-align:center;"cols=40 rows=10 id="output"></textarea>
+            
+            
+			<textarea id="output" readonly rows=8></textarea>
 
 
-  			<button id="submit" type="button" value="Submit">Submit</button>
+			<button id="submit" type="submit" >Submit</button>
+
 		</form>
 
-
+<!--- Creating and allocating memory  the objects to validated within the browsers memory -->
 <!--- Script below is a jQuery scirpt used for caching specific details within the web browser (creating cookies)  -->
 
 <script>
-
- $(document).ready(function(){
-    
-
-<!--- Creating and allocating memory for the objects to validated within the browser's memory -->
-
-$("#submit").click(function () {
-	localStorage.setItem('fname', $('#fname').val());
-	localStorage.setItem('lname', $('#lname').val());
-	localStorage.setItem('email', $('#email').val());
-	localStorage.setItem('dob', $('#dob').val());
-	localStorage.setItem('gen', $("input[name='gender']:checked").val());
-
-	alert("Variables have been placed to localStorage");
-	
-	showVariables();
-	
-});
-
-
-<!--- Displaying items within the text area -->
-<!--- Chaning the color of the input string -->
-<!--- And also placing them within the input fields -->
-
-showVariables = function(){
-	
-
-	if(localStorage.getItem('fname') !== null)
-		$('#output').text("The details shown below have been recorded and put back in the text fields \n \n " + 
-			"Name: " + localStorage.getItem('fname') + "\n" + 
-			"Surname: " + localStorage.getItem('lname') + "\n" + 
-			"Email: " + localStorage.getItem('email') + "\n" + 
-			"Date of birth: " + localStorage.getItem('dob') + "\n" +
-			"Gender: " + localStorage.getItem('gen') + "\n" 
-		);
-		
-		$('#fname').css({ 'color': 'red', 'font-size': '110%' });
-		$('#lname').css({ 'color': 'red', 'font-size': '110%' });
-		$('#email').css({ 'color': 'red', 'font-size': '110%' });
-		$('#dob').css({ 'color': 'red', 'font-size': '110%' });
-		$('#gen').css({ 'color': 'red', 'font-size': '110%' });
-
-		$('#fname').text(localStorage.getItem('fname'));
-		$('#lname').text(localStorage.getItem('lname'));
-		$('#email').text(localStorage.getItem('email'));
-		$('#dob').text(localStorage.getItem('dob'));
-		$('#gen').check(localStorage.getItem('gen'));
-}
-
-});
 
 </script>
 	</div>
