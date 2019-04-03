@@ -1,5 +1,80 @@
 $(document).ready(function() {
+    
+    
+    
+    const template1 = document.getElementById('dialog-template1');
+    const template2 = document.getElementById('dialog-template2');
+    const template3 = document.getElementById('dialog-template3');
 
+    document.body.appendChild(
+      document.importNode(template1.content, true)
+    );
+    
+    document.body.appendChild(
+      document.importNode(template2.content, true)
+    );
+    
+    
+    document.body.appendChild(
+      document.importNode(template3.content, true)
+    );
+    
+    
+    
+    function showCorrectNotification(wrapperName) {
+        
+        const wrapper = document.querySelector(wrapperName);
+        const closeButton = document.querySelector('button.close2');
+        const wasFocused = document.activeElement;
+        wrapper.classList.add('open');
+        closeButton.focus();
+        closeButton.addEventListener('click', () => {
+            
+                    console.log("hello");
+
+            wrapper.classList.remove('open');
+            wasFocused.focus();
+        });
+    }
+    
+    function showIncorrectNotification(wrapperName) {
+
+        
+        const wrapper = document.querySelector(wrapperName);
+        const closeButton = document.querySelector('button.close1');
+        const wasFocused = document.activeElement;
+        wrapper.classList.add('open');
+
+        closeButton.focus();
+        closeButton.addEventListener('click', () => {
+            
+            wrapper.classList.remove('open');
+            wasFocused.focus();
+        });
+    }
+
+
+
+    
+    $("#signUp").click(function(){
+        $("#signIn").fadeOut(0).hide(1000);
+        $("#register").fadeIn(1500);
+    });
+        
+    $("#optionRegister").click(function(){
+        $("#selectMethod").fadeOut(1500).hide();
+        $("#register").fadeIn(1500);
+    });
+    
+    $("#backArrow1").click(function(){
+        $("#register").fadeOut(1500).hide();
+        $("#signIn").fadeIn(1500);
+    });
+
+    
+    
+    
+    
     $("#email").change(validate).keyup(validate);
 
     function validate() {
@@ -30,16 +105,28 @@ $(document).ready(function() {
 
         }   
     }
+    
+    
 
 
-    // External REGEX validation... Too lond and complicated but more accurate result  
+    
+   showSignIn = function () {
 
-    //function validateEmail(email) {
-    //  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    //  return re.test(email);
-    //}
-
-
+        var fname = $('#usernameSignIn').val();
+        var pass = $('#passwordSignIn').val();
+        
+        var getUserName =  localStorage.getItem('fname');
+        var getUserPass =  localStorage.getItem('pass1');
+        
+        
+        if(fname === getUserName && pass === getUserPass) {
+            showCorrectNotification(".wrapper2");
+        } else {
+            showIncorrectNotification(".wrapper1");
+        }
+        
+    }
+    
 
     resultsFun = function () {
         
@@ -48,21 +135,28 @@ $(document).ready(function() {
         var email = $('#email').val();
         var dob = $('#dob').val();
         var gen = $("input[name='gender']:checked").val();
+        var pass1 = $('#pass1').val();
+        var pass2 = $('#pass2').val();
         
-        var infoArray = [fname, lname, email, dob, gen];
-        
-        console.log(infoArray);
-        infoArray.shift(fname);
-        console.log(infoArray);
+        console.log(pass1 + "  " + pass2);
+            
+        if(pass1 === pass2) {
+            localStorage.setItem('pass1', pass1);
+            $('#pass1').removeClass("error");        
+            $('#pass2').removeClass("error");        
 
+        } else {
+            alert("Passwords do not match!");
+            $('#pass1').addClass("error");        
+            $('#pass2').addClass("error");        
+        }
+            
         // Test first name
         if(testString(fname)) {
             localStorage.setItem('fname', fname);
             $('#fname').css({ "border": 'transparent 1px solid'});
             $('#fname').removeClass("error");        
             $('#fname').addClass("valid");
-            
-            
         } else {
             $('#fname').addClass("error");        
             $('#fname').removeClass("valid");
@@ -120,7 +214,7 @@ $(document).ready(function() {
     
     
     
-    function testString(str) {
+    testString = function (str) {
         
         if(/^[a-zA-Z]+$/.test(str)) 
             return true;            
@@ -130,7 +224,7 @@ $(document).ready(function() {
         
     }
     
-    function testEmail(str) {
+    testEmail = function (str) {
         
         if(/\S+@\S+\.\S+/.test(str)) 
             return true;            
@@ -140,7 +234,7 @@ $(document).ready(function() {
         
     }
         
-    function testDate(str) {
+    testDate = function (str) {
         
         if(/^(?=.*?[1-9])[0-9()-]+$/.test(str))
             return true;
@@ -155,7 +249,7 @@ $(document).ready(function() {
     showVariables = function () {
 
         if(localStorage.getItem('fname') !== null)
-            $('#output').text("The details shown below have been recorded and put back in the text fields \n \n " + 
+            $('#output').text("The details shown below have been recorded \n \n " + 
                 "Name: " + localStorage.getItem('fname') + "\n" + 
                 "Surname: " + localStorage.getItem('lname') + "\n" + 
                 "Email: " + localStorage.getItem('email') + "\n" + 

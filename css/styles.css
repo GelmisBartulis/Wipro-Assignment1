@@ -1,139 +1,447 @@
+
+
+/*  Main config for global params */
 * {
-    font-family: 'Raleway', sans-serif;
-}
-
-html, body {
-	margin: 0;
+    margin: 0;
 	padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; 
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+    
+}
+
+body:before {
+      content: "";
+      position: fixed;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,.8);
+          -moz-box-shadow: 0px 0px 15px rgba(0,0,0,.8);
+                     box-shadow: 0px 0px 15px rgba(0,0,0,.8);
+
+      z-index: 100;
+}
 
 body {
-	background-color: #333;
 	color: #f9f9f9;
 	text-align: justified;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow-y: hidden;
+    
+}
+
+
+body img {
+    opacity: 0.5;
+}
+
+
+body video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    z-index: -999;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    filter: grayscale(1);
+}
+
+body .overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -998;
+    overflow-y: hidden;
 }
 
 h3 {
     text-align: center;
-    font-size: 25px;
+    font-size: 2em;
 }
 
-#mainContent {
-	border: 2px outset #016698;
-	border-radius: 10px;
-	border-top: 1px outset #016698;
-	border-left: 1px outset #016698;
-	box-shadow: 5px 30px 80px 10px #00334c;
-	background-color: #404040;
+
+table { 
+    width:100%;
 	margin-left: auto;
 	margin-right: auto;
-	width: 300px;
-	padding: 50px;
-	margin-top: 100px;
 }
-input[type="text"], input[type="email"], input[type="date"], textarea {
-    background-color : #787878; 
+
+table td {
+    width: 33%;
+    vertical-align: middle;
 }
-#mainContent form input {
-	margin-top: 10px;
-	width: 125px;
+
+
+#selectMethod video, #signIn video  {
+    position: absolute;
+    width: 1900px;
+    filter: grayscale(0);
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.9);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.8);
+		transform: translatey(0px);
+	}
+}
+
+
+
+
+/*   Initial sign in or register box  */
+#selectMethod {
+    width: 38%;
+    border: 1px outset #0086b3;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    color: #f9f9f9;
+    text-shadow: 3px 3px 4px #111;
+    text-align: center;
+    margin-top: 15%;
+    padding: 4%;
+    box-sizing: border-box;
+    overflow: hidden;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.9);
+	transform: translatey(0px);
+/*	animation: float 6s ease-in-out infinite;*/
+}
+
+
+#selectedMethod:hover h1{
+   color:black; 
+}
+
+#selectMethod h1 {
+    font-size: 50px;
+    margin-bottom: 10%;
+}
+
+#options {
+    display: flex;
+}
+
+#options button {
+    border: 1px outset #9C27B0;
+    background-color: #f9f9f9;
+    color: #0086b3;
+    padding: 2% 5% 2% 5%;
+    margin: 0 ;
+    border-radius: 10px; 
+    margin-top: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex: 1;
+    box-shadow: 5px 5px 10px 1px #111;
+    transition: 0.5s;
+}
+
+#options button:hover {
+    border: 1px inset #607D8B;
+    background-color: #ff99cc;
+    color: #fff;
+    box-shadow: 5px 10px 80px 10px #3F51B5;
+    transition: 0.42s;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+
+
+
+/* Sign In page open up here */
+
+#signIn {
+    width: 38%;
+    border: 1px outset #0086b3;
+	box-shadow: 0 15px 15px 2px rgba(0,0,0,0.9);
+    margin-left:auto;
+    margin-right: auto;
+    border-radius: 10px;        
+    color: #e6d2f9;
+    text-align: center;
+    margin-top: 10%;
+    padding: 4%;
+    overflow: hidden;
+    filter: grayscale(0);
+}
+
+
+
+#signIn h2 {
+    font-size: 35px;
+    margin-bottom: 2%;
+    text-shadow: 3px 3px 5px #000;
+    text-align: center;
+    color: #f9f9f9;
+
+}
+
+
+#signIn input{
+    color: #fff;
+    border: none;
+    font-size: 80%;
+    padding: 1%;
+    background-color: transparent;
+    border-bottom: 2px solid #333;
+    text-shadow: 2px 2px 2px #000;
+}
+
+#signIn input::placeholder {
+    color: #d4d4d4;
+    text-shadow: 2px 2px 3px #000;
+}
+
+
+#signIn p {
+    margin-top: 15%;
+    text-shadow: 3px 3px 2px #000;
+    color: #fff;
+}
+
+
+
+#submitSignIn {
+    border:none;
+	border-bottom: 3px solid #33adff;
+	background-color: transparent;
+	box-shadow: 3px 3px 30px 10px transparent;
+    padding: 2% 5% 2% 5%;
+    margin: 0 ;
+    border-radius: 10px; 
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex: 1;
+    font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+    color: #ccebff;
+    transition: 0.5s;
+}
+
+#signIn p button {
+    border:none;
+	border-bottom: 3px solid #33adff;
+	background-color: transparent;
+    padding: 2% 5% 2% 5%;
+    width: 50%;
+    margin: 0 ;
+    border-radius: 10px; 
+    margin-left: 10%;
+    margin-right: 10%;
+    flex: 1;
+    box-shadow: 3px 3px 30px 10px transparent;
+    transition: 0.5s;
+    font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+    color: #ccebff;
+}
+
+#submitSignIn:hover, #signIn p button:hover {
+	background-color: #ccebff;
+	box-shadow: 3px 3px 30px 10px #33adff;
+	cursor: pointer;
+	transition: 0.4s;
+    color: #404040;
+    opacity: 0.8;
+}
+
+#goBackArrow1 img {
+    z-index: -999;
+    width: 10%;
+    float: left;
+    padding: 0;
+    margin: 0;
+    transition: 0.3s;
+}
+
+#goBackArrow1 img:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+
+/*    Register form   */
+#register {
+    width: 38%;
+    margin-top: 5%;
+    border: 1px outset #0086b3;
+	box-shadow: 0 5px 15px 2px rgba(0,0,0,0.9);
+    margin-left:auto;
+    margin-right: auto;
+    border-radius: 10px;        
+    color: #f9f9f9;
+    text-align: center;
+    padding: 4%;
+
+}
+
+#register h2 {
+    text-align: center !important;
+    margin-bottom: 3%;
+    padding-right: 10%;
+}
+
+#formInline {
+    font-size: 80%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formInline table {
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+
+#formInline input {
+    border: none;
+    width: 80%;
+    color: #fff;
+    background-color: transparent;
+    font-size: 100%;
+    border-radius: 10px;
+    border-bottom: 1px solid #33adff;
+    padding: 2%;
+}
+
+#formInline input::placeholder {
+    color: #999;
 }
 
 #submit {
-	margin-top: 40px;
-	border-radius: 5px;
+	margin-top: 10%;
+	border-radius: 10px;
 	border: 1px solid transparent;
-    border-top: 1px outset #016698;
+    border-top: 2px outset #016698;
 	background-color: transparent;
 	padding: 10px;
 	font-family: 'Raleway', sans-serif;
 	font-size: 16px;
 	font-weight: 600;
+    color: #ccebff;
 	width: 100%;
 	box-shadow: 3px 3px 8px transparent;
 	transition: 0.5s;
 	text-align: center;
 	align-content: center;
+
 }
 
 
 #submit:hover {
-	border: 1px outset #33adff;
+	border: 2px outset #33adff;
 	background-color: #ccebff;
 	box-shadow: 3px 3px 80px #33adff;
-	cursor: pointer;s
+	cursor: pointer;
 	width: 100%;
-	transition: 0.5s;
+	transition: 0.4s;
+    color: #404040;
+
+}
+#submit:active {
+    box-shadow:  0 1px 0 #6495ed;
+    border: 2px inset #33adff; 
+    top: 3px;
 }
 
-#formInline { 
-    flex-direction: column;
-    align-items: stretch;
-    text-align: left;
-}
 
-/* Add some margins for each label */
-#formInline label {
-  margin: 5px 10px 5px 0;
-}
 
-#formInline input {
-    vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 10px;
-    background-color: #e6e6e6;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 12px;
-    transition: 0.5s;
-}
 
 #formButtons {
     text-align: center;
-    
+    margin-top: 5%;
 }
 
 #formButtons input[type="radio"] {
-    margin-left: 5%!important;
-    transition: 0.45s !important;
+    margin-right: 7%!important;
+    width: 5% !important;
+	height: 20px;
+    margin-top: 0; 
 }
 
 
 
 
 
-
+/*   TextArea stles   */
 #output {
     width: 100%;
     height: auto;
     text-align: center;
     transition: 0.5s;
-    color: #333;
-    background-color: #e6e6e6;
-    border: 1px solid #ddd;
+    color: #d4d4d4;
+    background-color: #222;
+    border: 2px inset #ddd;
     border-radius: 6px;
+    resize: none;
+    margin-top: 10%;
 }
 
-/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
-@media (max-width: 800px) {
-  formInline input {
-    margin: 10px 0;
-  }
-
-  #formInline {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: left;
-
-  }
-} 	
-
-.radio {
-	width: 15px !important;
-	height: 20px;
-	padding: 20px;
+#output:hover {
+    background-color: #444;
+	box-shadow: 3px 3px 80px #33adff;
+    border: 2px outset #999999;
+    cursor: default;
+    color: #33adff;
+    transition: 0.5s;
 }
+
 
 #emailImg {
     width: 10%;
@@ -142,16 +450,16 @@ input[type="text"], input[type="email"], input[type="date"], textarea {
 }
 
 
-
 .empty {
     background-color:#e6e6e6 !important;   
-        transition: 0.5s
+    color: #333;
+    transition: 0.5s;
 
 }
 
 .error {
     background-color:#ff6666 !important;
-        transition: 0.5s
+    transition: 0.5s
 
 }
 
@@ -160,6 +468,323 @@ input[type="text"], input[type="email"], input[type="date"], textarea {
     transition: 0.5s
 
 }
+
+
+
+
+
+#launch-dialog {
+  background: tomato;
+  border-radius: 4px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  position: static;
+}
+
+
+#launch-dialog1 {
+  background: tomato;
+  border-radius: 4px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  position: static;
+}
+
+#launch-dialog2 {
+  background: green;
+  border-radius: 4px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  position: static;
+}
+
+#launch-dialog3 {
+  background: #123456;
+  border-radius: 4px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  position: static;
+}
+
+
+.close1, .close2, .close3 {
+    padding: 5%;
+    float: inherit;
+    border: none;
+    background: #444;
+    color: #d9d9d9;
+    padding: 0;
+    font-size: 12px;
+    font-weight: lighter !important;
+    text-align: center;
+    border-radius:50px;
+    top: -3px;
+    height: 25px;
+    width: 25px;
+    float: right;
+	box-shadow: 3px 3px 10px #444;
+    transition: 0.3s;
+
+}
+
+
+.close1:hover, .close2:hover, .close3:hover {
+    background: #333;
+    color: #787878;
+	box-shadow: 3px 3px 10px #666;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+
+.wrapper1 {
+    opacity: 0;
+    transition: visibility 0s, opacity 0.8s ease-in;
+}
+
+.wrapper1:not(.open) {
+    visibility: hidden;
+}
+
+.wrapper1.open {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.wrapper2 {
+    opacity: 0;
+    transition: visibility 0s, opacity 0.8s ease-in;
+}
+
+.wrapper2:not(.open) {
+    visibility: hidden;
+}
+
+.wrapper2.open {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+
+.wrapper3 {
+    opacity: 0;
+    transition: visibility 0s, opacity 0.8s ease-in;
+}
+
+.wrapper3:not(.open) {
+    visibility: hidden;
+}
+
+.wrapper3.open {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+
+
+
+
+
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10%;
+}
+
+.dialog {
+    background:  #ff9999;
+    max-width: 600px;
+    position: fixed;
+    color: #444;
+    padding: 3%;
+    border-radius: 10px;
+}
+
+
+.dialog1 {
+    background:  #ff9999;
+    max-width: 600px;
+    position: fixed;
+    color: #444;
+    padding: 3%;
+    border-radius: 10px;
+}
+
+
+.dialog2 {
+    background:  green;
+    max-width: 600px;
+    position: fixed;
+    color: #444;
+    padding: 3%;
+    border-radius: 10px;
+    
+}
+
+
+.dialog3 {
+    background:  #123456;
+    max-width: 600px;
+    position: fixed;
+    color: #444;
+    padding: 3%;
+    border-radius: 10px;
+    
+}
+
+
+
+
+.launch-dialog:focus {
+    border: 2px solid blue;
+}
+.launch-dialog1:focus {
+    border: 2px solid blue;
+}
+.launch-dialog2:focus {
+    border: 2px solid blue;
+}
+.launch-dialog3:focus {
+    border: 2px solid blue;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+    /*  Phones only  */
+    body {
+/*        background-color: #333333;*/
+    }
+    
+    formInline input {
+        margin: 10px 0;
+    }
+
+    #register {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        padding: 3%;
+        margin-top: 3%;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    
+    /* Phones in portait mode */
+
+    /* Sign In page open up here */
+
+    #signIn  {
+        width: 80%;
+        border: 1px outset #0086b3;
+        box-shadow: 0 5px 15px 2px rgba(0,0,0,0.9);
+        margin-left:auto;
+        margin-right: auto;
+        border-radius: 10px;        
+        background-color: #444;
+        color: #e6d2f9;
+        text-align: center;
+        margin-top: 10%;
+        padding: 4%;
+        font-size: 50%;
+    }
+    formInline input {
+        margin: 10px 0;
+    }
+
+    #register {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        padding: 3%;
+        margin-top: 3%;
+    }
+    
+    #selectMethod {
+        width: 80%;
+    }
+}
+
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+    .row, .navbar {   
+        flex-direction: column;
+    }
+    
+    formInline input {
+        margin: 10px 0;
+    }
+
+    #register {
+        margin-left: auto;
+        margin-right: auto;
+        width: 35%;
+        padding: 3%;
+        margin-top: 3%;
+    }    
+    
+    #selectMethod {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+}
+
 
 
 
