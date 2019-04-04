@@ -2,7 +2,6 @@
 <html>
 
 <!--- Defining meta information for the page -->
-
 <head>
     
 <!--    Type of characters used within the website   -->
@@ -24,12 +23,12 @@
 <!--- Link for jQuery scripts for animations and form processing -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
+<!--  Importing own script   -->
 <script type="text/javascript" src="js/script.js" ></script>
 
 <!--- Linking Google fonts --> 
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
-    
     
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,63 +39,78 @@
 <!--- Relating the stylesheet -->
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
+<!--- Necessary title for the page -->   
 <title> Assignment 1 </title>
+    
 
 </head>
 
 
 <body>
+    
+    <!--  Video overlay (reduces brightness the video element)  -->
     <div class="overlay1"></div>
-
+    
+    
+    <!--  Inline video that plays automatically as soonas the web is launched  -->
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" preload>
 
+        <!--  The ivdoe for the main body element that has the grayscale effect  -->
         <source src="videos/video.mp4" type="video/mp4">
+        
     </video> 
 
     <!--  Get all the DIV's in one to preserve speed and efficiency  -->
     <div id="fullContent">
         
         
-
-        
-        
-
-        
-        
-        
         <!--   The sign in method    -->
         <div id="signIn" >
-            
+            <!--   Having another video playing in a div is not an efficient solution   -->
+            <!--   But it does act as an effect   -->
+            <!--   The 0 grayscale effect on the video     -->
             <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" preload>
+                
+                <!--   Sign in div video    -->
                 <source src="videos/video.mp4"  type="video/mp4">
+                
             </video> 
 
  
-            
+            <!--   Sign in heading    -->
             <h2>Log in</h2>
 
+            <!--   The form is fucntional with JS so no submission is needed    -->
             <form >
 
+                
+                <!--   Breaking lines     -->
                 <br>
                 <br>
 
+                <!--   Allowing for username input    -->
                 <input type="text" id="usernameSignIn" name="usernameSignIn" placeholder="Username" autocomplete="off">
 
+                <!--   Breaking lines     -->
                 <br>
                 <br>
 
+                <!--   Allowing for password input    -->
                 <input type="password" id="passwordSignIn" name="passwordSignIn" placeholder="Password" autocomplete="off">
                 
+                <!--   Breaking lines     -->
                 <br>
                 <br>
 
+                <!--   Submit button initiates an action on JS   -->
                 <button type="button" id="submitSignIn" onclick="showSignIn()" value="submit" name="Submit">Login </button>
 
             </form>
             
+            <!--   Link to register DIV    -->
             <p> Don't have an account yet? <br> <button type="button" id="signUp"  name="Submit">Register</button></p>
             
-        </div>
+        </div><!--   End of Sign In div     -->
         
         
         
@@ -105,109 +119,112 @@
         <!--- The whole web content belongs to this DIV -->
         <div id="register" hidden>
             
-                        
+            <!--   Arrow to go back to the signIn Div     -->
             <div id="goBackArrow1">
+                
+                <!--   Link for the image    -->
                 <a href="Assignment1.html" ><img src="images/back.png" id="backArrow1" alt="Go back icon"></a>
+                
             </div>
             
             
-            <!--  Content heading      -->
+            <!--  Content heading -->
             <h2> Register </h2>
 
-            <!--- A form that allows for details to be processed 				-->
-            <!--- When user enters the details and clicks submit, a script (run below) 	-->
-            <!--- allows to add (cache) all the details submitted within the form 		-->
+            <!--- A form that allows for details to be processed 				            -->
+            <!--- When user enters the details and clicks submit, a script (run below) 	    -->
+            <!--- allows to add (cache) all the details submitted within the form 		    -->
             <!--- to be reused and shown within the textarea and the user input fields  	-->
 
-            <form id="formInline" onsubmit="resultsFun(); return false" >
+            <form id="formInline" >
 
+                
+                <!--  Table to construct and style the form   -->
                 <table>
+                    
+                    <!--  Table row with only input because the label is not necessary   -->
                     <tr>
+                        <!-- First input  -->
                         <td><input id="fname" type="text" name="fname" placeholder="First name" autocomplete="off"> </td>
                     </tr>
 
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
 
+                    <!--  Table row with only input because the label is not necessary   -->
                     <tr>
+                        <!-- Second name input  -->
                         <td><input id="lname" type="text" name="lname" placeholder="Last name" autocomplete="off"></td>
                     </tr>
 
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
-                    
-                    
+
+                    <!--  Table row with only input because the label is not necessary   -->
                     <tr>
+                        <!-- Email input  -->
                         <td><input id="email" type="text" placeholder="Email" name="email" autocomplete="off"> <img src="images/logo.png" id="emailImg"></td>
                     </tr>
 
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
                     
-
+                    <!--  Table row with only input because the label is not necessary   -->
                     <tr>
+                        <!-- DOB input  -->
                         <td><input id="dob" type="date" max="2010-01-31" name="dob" placeholder="Date of Birth"  autocomplete="off"> </td>
                     </tr>
 
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
                     
-
+                    <!--  Table row with only input because the label is not necessary   -->
                     <tr>
+                        <!-- password input  -->
                         <td><input id="pass1" type="password" name="pass1" placeholder="Password"  autocomplete="off"> </td>
                     </tr>
 
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
                     
 
                     <tr>
+                        <!-- Repeat password input  -->
                         <td><input id="pass2" type="password" name="pass2" placeholder="Confirm password"  autocomplete="off"></td>
                     </tr>   
 
                 </table>
+                
 
-
+                <!--  Applying a di to the buttons allows for easy styling   -->
                 <div id="formButtons">
+                    
+                    <!--  Label for user instructions -->
                     <label for="gen" id="labelGen"> Please select gender</label>
+                    
                     <br>
                     <br>
+                    
+                    <!--  Label and RB for Male -->
                     <label for="gender" value= "Male">Male</label>
                     <input type="radio" class="radio" name="gender" value="male"> 
 
+                    <!--  Label and RB for Female -->
                     <label for="gender" value= "Female">Female</label>
                     <input type="radio" class="radio" name="gender" value="female"> 
 
+                    <!--  Label and RB for Other -->
                     <label for="gender" value= "Other">Other</label>
-                    <input type="radio" class="radio" name="gender" value="other">  <br>
+                    <input type="radio" class="radio" name="gender" value="other">  
+                    
+                    <br>
                 </div>
 
+                <!--  Textarea for all the detail output  -->
                 <textarea id="output" readonly rows=8></textarea>
 
+                <!--  Submit button for the registration form  -->
+                <button id="submit" type="button" onclick="resultsFun(); return false"  >Submit</button>
 
-                <button id="submit" type="submit" >Submit</button>
+            </form><!--  End of reg form -->
 
-            </form>
-
-        </div>
+        </div><!--  End of REG div -->
         
-        
-        
-        
-        
-        
-    </div>
+    </div><!--  End of main content div -->
+    
+    
     
         <!--  Pop up templates for custom user notifications   -->
-        
-    
-    
-    
         <!--    WRONG ANSWER     -->
     
             <!--    Template designed for user notificationb of an incorrect data entered    -->
@@ -317,8 +334,6 @@
             </div>
             
         </template>
-    
-
 
 </body>
 </html>
