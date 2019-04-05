@@ -116,16 +116,19 @@ table td {
 
 @keyframes float {
 	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.9);
-		transform: translatey(0px);
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.8);
+        transform: translatey(0px);
+        transform: rotate(0deg);
 	}
 	50% {
 		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.6);
-		transform: translatey(-20px);
+		transform: translatey(-30px);
+        transform: rotate(180deg);
 	}
 	100% {
 		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.8);
 		transform: translatey(0px);
+        transform: rotate(360deg);
 	}
 }
 
@@ -765,6 +768,34 @@ table td {
 }
 
 
+#credits  {
+    float:right;
+    padding: auto;
+    font-family: 'Raleway', sans-serif !important;
+    height: 0px;
+    margin-top: 8%;
+    margin-right: 5%;
+    font-size: 70%;
+    color: #d4d4d4;
+    border: none;
+    text-shadow: 2px 2px 2px #111;
+    margin: 5% 5% 0 1%; 
+    animation: 3s float infinite;
+}
+
+
+#credits a {
+    color: #d4d4d4;
+    text-decoration: none;
+    padding: 1%;
+    transition: 0.5s;
+}
+
+#credits a:hover {
+    color: #fff;
+    text-shadow: 2px 2px 3px #33adff;
+    transition: 0.5s;
+}
 
 
 
