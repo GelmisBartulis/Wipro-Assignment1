@@ -162,25 +162,28 @@ $(document).ready(function() {
         
         // Getting the data from the localStorage 
         // First name
-        var getUserName =  localStorage.getItem('fname');
+        var getUserEmail =  localStorage.getItem('email');
         
         // Password
         var getUserPass =  localStorage.getItem('pass1');
         
         
         // If the first name is present that has a value in the localStorage
-        if(fname === getUserName && pass === getUserPass) {
+        if(fname === getUserEmail && pass === getUserPass) {
             
             // If both variables match the data 
             showNotification(".wrapper2", "button.close2");
+
         } else {
-            
+
             // Show the data if the info is wrong
             showNotification(".wrapper1", "button.close1");
         
         } // end of if
         
     } // end of showSignIn method
+    
+    
     
 
     // Registering the user 
@@ -210,21 +213,23 @@ $(document).ready(function() {
         // Confirm password
         var pass2 = $('#pass2').val();
         
+        
             
-        if(!pass1 === null && !pass2 === null && pass1 === pass2) {
-            localStorage.setItem('pass1', pass1);
+        if(testPass(pass1) && testPass(pass2) && pass1 === pass2) {
+            $('#pass1').css({ "border": 'transparent 1px solid'});
+            $('#pass2').css({ "border": 'transparent 1px solid'});
             $('#pass1').removeClass("error");        
-            $('#pass2').removeClass("error");        
-
+            $('#pass2').removeClass("error");  
+            $('#pass2').add("valid");  
+            $('#pass2').add("valid");  
+            
         } else {
-            showNotification(".wrapper1", "button.close1");
             $('#pass1').addClass("error");        
             $('#pass2').addClass("error");        
         }
             
         // Test first name
         if(testString(fname)) {
-            localStorage.setItem('fname', fname);
             $('#fname').css({ "border": 'transparent 1px solid'});
             $('#fname').removeClass("error");        
             $('#fname').addClass("valid");
@@ -236,7 +241,6 @@ $(document).ready(function() {
         
         // Test second name
         if(testString(lname)) {
-            localStorage.setItem('lname', lname);
             $('#lname').css({ "border": 'transparent 1px solid'});
             $('#lname').removeClass("error");        
             $('#lname').addClass("valid");
@@ -248,7 +252,6 @@ $(document).ready(function() {
         
         // Test email name        
         if(testEmail(email)) {
-            localStorage.setItem('email', email);
             $('#email').css({ "border": 'transparent 1px solid'});
             $('#email').removeClass("error");        
             $('#email').addClass("valid");
@@ -258,10 +261,8 @@ $(document).ready(function() {
             $('#email').removeClass("valid");
         }        
         
-        
         // Test date name        
         if(testDate(dob)) {
-            localStorage.setItem('dob', dob);
             $('#dob').css({ "border": 'transparent 1px solid'});
             $('#dob').removeClass("error");        
             $('#dob').addClass("valid");
@@ -273,7 +274,6 @@ $(document).ready(function() {
         
         // Test date name        
         if(testString(gen)) {
-            localStorage.setItem('gen', gen);
             $('#gen').css({ "border": 'transparent 1px solid'});
             $('#gen').removeClass("error");        
             $('#gen').addClass("valid");
@@ -284,52 +284,85 @@ $(document).ready(function() {
         }  
         
 
-        showVariables();
+        if(!pass1 === null && !pass2 === null && testPass(pass1) === testPass(pass1) && testString(fname) && testString(lname) && testEmail(email) && testDate(dob) && testString(gen)) {
+            localStorage.setItem('fname', fname);
+            localStorage.setItem('lname', lname);
+            localStorage.setItem('email', email);
+            localStorage.setItem('dob', dob);
+            localStorage.setItem('gen', gen);
+            localStorage.setItem('pass1', pass1);
+            saveVariables();
+            showNotification(".wrapper2", "button.close2");
+        } else {
+            showNotification(".wrapper1", "button.close1");
+        }
     }
     
     
-    
+    // Testing the string to make sure it's only letters with no symbols, numebers or spaces
     testString = function (str) {
         
         if(/^[a-zA-Z]+$/.test(str)) 
             return true;            
-        
         else 
             return false;            
-        
     }
     
+    
+    // Checking the email address to make sure it matches something@something.com
     testEmail = function (str) {
         
         if(/\S+@\S+\.\S+/.test(str)) 
             return true;            
-        
         else 
             return false;            
-        
     }
         
+    // Checking if the date has the valid input without any symbols and just numbers 
     testDate = function (str) {
         
         if(/^(?=.*?[1-9])[0-9()-]+$/.test(str))
             return true;
         else
             return false;
-
     }        
+    
+    
+    // Checking the password to match the criteria
+    testPass = function(str) {
+        var rules = [
+            /[0-9]/,//at least one digit from 0-9, could also use \d
+            /[a-z]/,//at least one lowercase
+            /[A-Z]/,//at least one uppercase
+            /[!%&*\s]/,//special characters, add more as needed. note that \s checks for whitespace
+            /^.{8,20}$///length between 8-20
+        ];
+
+        //validate
+        for(var i = 0; i < rules.length; i++){
+           
+            var rule = rules[i];
+            if(!rule.test(str)){
+                return false;
+                break;
+            } else {
+                return true;
+                break;
+            }
+        }
+    }
     
     //<!--- Displaying items within the text area -->
     //<!--- Chaning the color of the input string -->
     //<!--- And also placing them within the input fields -->
-    showVariables = function () {
-
+    saveVariables = function () {
         if(localStorage.getItem('fname') !== null)
-            $('#output').text("The details shown below have been recorded \n \n " + 
+            $('#output').text(
+                "The details shown below have been recorded \n \n " + 
                 "Name: " + localStorage.getItem('fname') + "\n" + 
                 "Surname: " + localStorage.getItem('lname') + "\n" + 
                 "Email: " + localStorage.getItem('email') + "\n" + 
                 "Date of birth: " + localStorage.getItem('dob') + "\n" +
-                "Gender: " + localStorage.getItem('gen') + "\n" 
-            );
+                "Gender: " + localStorage.getItem('gen') + "\n");
     }
 });
