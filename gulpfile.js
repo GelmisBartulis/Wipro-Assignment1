@@ -22,3 +22,14 @@ gulp.task('minify-css', done => {
 	.pipe(gulp.dest('path/to/destination'));
     done();
 });
+
+var gulp = require('gulp')
+, uglify = require("gulp-uglify");
+
+// task
+gulp.task('minify-js', done => {
+	gulp.src('./JavaScript/*.js') // path to your files
+	.pipe(uglify())
+	.pipe(gulp.dest('path/to/destination'));
+    done();
+});
