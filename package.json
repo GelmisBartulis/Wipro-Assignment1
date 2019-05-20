@@ -1,0 +1,27 @@
+{
+  "name": "wipro-assignment1",
+  "version": "1.0.0",
+  "description": "This is an application composed of HTML5, CSS3, JS, jQuery. It serves the purposes of actaully being able to create an account and login. All the details are stored within the **localStorage**. Therefore this is not a safe option to be released within the public.",
+  "main": "index.js",
+  "dependencies": {
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GelmisBartulis/Wipro-Assignment1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GelmisBartulis/Wipro-Assignment1/issues"
+  },
+  "homepage": "https://github.com/GelmisBartulis/Wipro-Assignment1#readme"
+}
