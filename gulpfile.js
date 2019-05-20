@@ -4,7 +4,8 @@ var gulp = require('gulp'),
   minifyCss = require("gulp-minify-css"),
   uglify = require("gulp-uglify"),
   sass = require("gulp-sass"),
-  concat = require("gulp-concat");
+  concat = require("gulp-concat"),
+  image = require('gulp-image');
 
 // task
 gulp.task('minify-html', done => {
@@ -42,4 +43,11 @@ gulp.task('compile-sass',  done => {
 	.pipe(sass())
 	.pipe(gulp.dest('./sass'));
     done();
+});
+
+gulp.task('image', done => {
+  gulp.src('./images/*')
+    .pipe(image())
+    .pipe(gulp.dest('./dest'));
+    done(); 
 });
