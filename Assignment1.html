@@ -1,347 +1,109 @@
 <!DOCTYPE html>
 <html>
-
-<!--- Defining meta information for the page -->
 <head>
-    
-<!--    Type of characters used within the website   -->
-<meta charset="UTF-8">
-    
-<!--    Description of the content within the website  -->
-<meta name="description" content="Assignment 1">
-    
-<!--    Keywords for SEO   -->
-<meta name="keywords" content="HTML,CSS,jQuery,JavaScript">
-    
-<!--    The person who wrote the website and it's content  -->
-<meta name="author" content="Gelmis Bartulis">
-    
-<!--    Width compatibility for different plaforms with different screens   -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
-<!--- Link for jQuery scripts for animations and form processing -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-<!--  Importing own script   -->
-<script type="text/javascript" src="js/script.js" ></script>
-
-<!--- Linking Google fonts --> 
-<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
-    
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-<!--- Relating the stylesheet -->
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-
-<!--- Necessary title for the page -->   
-<title> Assignment 1 </title>
-    
-
+    <meta charset="UTF-8">
+    <meta name="description" content="Assignment 1">
+    <meta name="keywords" content="HTML,CSS,jQuery,JavaScript">
+    <meta name="author" content="Gelmis Bartulis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js" ></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title> Assignment 1 </title>
 </head>
 
-
 <body>
-    
-    <!--  Video overlay (reduces brightness the video element)  -->
-    <div class="overlay1"></div>
-    
-    
-    <!--  Inline video that plays automatically as soonas the web is launched  -->
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" preload>
-
-        <!--  The ivdoe for the main body element that has the grayscale effect  -->
-        <source src="videos/video.mp4" type="video/mp4">
-        
-    </video> 
-
-    <!--  Get all the DIV's in one to preserve speed and efficiency  -->
     <div id="fullContent">
-        
-        
-        <!--   The sign in method    -->
         <div id="signIn" >
-            <!--   Having another video playing in a div is not an efficient solution   -->
-            <!--   But it does act as an effect   -->
-            <!--   The 0 grayscale effect on the video     -->
-            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" preload>
-                
-                <!--   Sign in div video    -->
-                <source src="videos/video.mp4"  type="video/mp4">
-                
-            </video> 
-
- 
-            <!--   Sign in heading    -->
             <h2>Log in</h2>
-
-            <!--   The form is fucntional with JS so no submission is needed    -->
-            <form >
-
-                
-                <!--   Breaking lines     -->
+            <form>
                 <br>
                 <br>
-
-                <!--   Allowing for username input    -->
                 <input type="email" id="usernameSignIn" name="usernameSignIn" placeholder="Email" autocomplete="off">
-
-                <!--   Breaking lines     -->
                 <br>
                 <br>
-
-                <!--   Allowing for password input    -->
                 <input type="password" id="passwordSignIn" name="passwordSignIn" placeholder="Password" autocomplete="off">
-                
-                <!--   Breaking lines     -->
                 <br>
                 <br>
-
-                <!--   Submit button initiates an action on JS   -->
                 <button type="button" id="submitSignIn" onclick="showSignIn()" value="submit" name="Submit">Login </button>
-
             </form>
-            
-            <!--   Link to register DIV    -->
             <p> Don't have an account yet? <br> <button type="button" id="signUp"  name="Submit">Register</button></p>
+        </div>
+        <div id="register" hidden><!--- The whole web content belongs to this DIV -->
             
-        </div><!--   End of Sign In div     -->
-        
-        
-        
-        
-        
-        <!--- The whole web content belongs to this DIV -->
-        <div id="register" hidden>
-            
-            <!--   Arrow to go back to the signIn Div     -->
-            <div id="goBackArrow1">
-                
-                <!--   Link for the image    -->
-                <a href="Assignment1.html" ><img src="images/back.png" id="backArrow1" alt="Go back icon"></a>
-                
+            <div id="goBackArrow1"><!--   Arrow to go back to the signIn Div     -->        
+                <a href="Assignment1.html" ><img src="images/back.png" id="backArrow1" alt="Go back icon"></a><!--   Link for the image    -->
             </div>
             
-            
-            <!--  Content heading -->
-            <h2> Register </h2>
-
-            <!--- A form that allows for details to be processed 				            -->
-            <!--- When user enters the details and clicks submit, a script (run below) 	    -->
-            <!--- allows to add (cache) all the details submitted within the form 		    -->
-            <!--- to be reused and shown within the textarea and the user input fields  	-->
-
+            <h2> Register </h2><!--  Content heading -->
             <form id="formInline" >
-
-                
-                <!--  Table to construct and style the form   -->
-                <table>
-                    
-                    <!--  Table row with only input because the label is not necessary   -->
-                    <tr>
-                        <!-- First input  -->
-                        <td><input id="fname" type="text" name="fname" placeholder="First name" autocomplete="off"> </td>
-                    </tr>
-
-
-                    <!--  Table row with only input because the label is not necessary   -->
-                    <tr>
-                        <!-- Second name input  -->
-                        <td><input id="lname" type="text" name="lname" placeholder="Last name" autocomplete="off"></td>
-                    </tr>
-
-
-                    <!--  Table row with only input because the label is not necessary   -->
-                    <tr>
-                        <!-- Email input  -->
-                        <td><input id="email" type="text" placeholder="Email" name="email" autocomplete="off"> <img src="images/logo.png" id="emailImg"></td>
-                    </tr>
-
-                    
-                    <!--  Table row with only input because the label is not necessary   -->
-                    <tr>
-                        <!-- DOB input  -->
-                        <td><input id="dob" type="date" max="2010-01-31" name="dob" placeholder="Date of Birth"  autocomplete="off"> </td>
-                    </tr>
-
-                    
-                    <!--  Table row with only input because the label is not necessary   -->
-                    <tr>
-                        <!-- password input  -->
-                        <td><input id="pass1" type="password" name="pass1" placeholder="Password"  autocomplete="off"> </td>
-                    </tr>
-
-                    
-
-                    <tr>
-                        <!-- Repeat password input  -->
-                        <td><input id="pass2" type="password" name="pass2" placeholder="Confirm password"  autocomplete="off"></td>
-                    </tr>   
-
+                <table><!--  Table row with only input because the label is not necessary   -->
+                    <tr><td><input id="fname" type="text" name="fname" placeholder="First name" autocomplete="off"> </td></tr><!-- First input  -->
+                    <tr><td><input id="lname" type="text" name="lname" placeholder="Last name" autocomplete="off"></td></tr><!-- Second name input  -->
+                    <tr><td><input id="email" type="text" placeholder="Email" name="email" autocomplete="off"> <img src="images/logo.png" id="emailImg"></td></tr><!-- Email input  -->
+                    <tr><td><input id="dob" type="date" max="2010-01-31" name="dob" placeholder="Date of Birth"  autocomplete="off"> </td></tr><!-- DOB input  -->
+                    <tr><td><input id="pass1" type="password" name="pass1" placeholder="Password"  autocomplete="off"> </td></tr><!-- password input  -->
+                    <tr><td><input id="pass2" type="password" name="pass2" placeholder="Confirm password"  autocomplete="off"></td></tr><!-- Repeat password input  -->
                 </table>
                 
-
-                <!--  Applying a di to the buttons allows for easy styling   -->
-                <div id="formButtons">
-                    
-                    <!--  Label for user instructions -->
+                <div id="formButtons"><!--  Applying a di to the buttons allows for easy styling   -->
                     <label for="gen" id="labelGen"> Please select gender</label>
-                    
                     <br>
                     <br>
-                    
-                    <!--  Label and RB for Male -->
-                    <label for="gender" value= "Male">Male</label>
-                    <input type="radio" class="radio" name="gender" value="male"> 
-
-                    <!--  Label and RB for Female -->
-                    <label for="gender" value= "Female">Female</label>
+                    <label for="gender" value= "Male">Male</label><!--  Label and RB for Male -->
+                    <input type="radio" class="radio" name="gender" value="male" placeholder="Male"> 
+                    <label for="gender" value= "Female">Female</label><!--  Label and RB for Female -->
                     <input type="radio" class="radio" name="gender" value="female"> 
-
-                    <!--  Label and RB for Other -->
-                    <label for="gender" value= "Other">Other</label>
+                    <label for="gender" value= "Other">Other</label><!--  Label and RB for Other -->
                     <input type="radio" class="radio" name="gender" value="other">  
-                    
                     <br>
                 </div>
-
-                <!--  Textarea for all the detail output  -->
-                <textarea id="output" readonly rows=8></textarea>
-
-                <!--  Submit button for the registration form  -->
-                <button id="submit" type="button" onclick="resultsFun(); return false"  >Submit</button>
-
+                <button id="submit" type="button" onclick="resultsFun(); return false"  >Submit</button><!--  Submit button for the registration form  -->
             </form><!--  End of reg form -->
-
         </div><!--  End of REG div -->
-        
-        
-        <div id="credits">
-        
-            <p>
-                <a href="https://www.gelmisb.com">Developed by Genbrah</a>
-            </p>
-        </div>
-            
     </div><!--  End of main content div -->
-    
-    
-    
-        <!--  Pop up templates for custom user notifications   -->
-        <!--    WRONG ANSWER     -->
-    
-            <!--    Template designed for user notificationb of an incorrect data entered    -->
-        <template id="dialog-template1">
-
-            <!--  Wrapper class hols all the items toegterh and places a container around the subject    -->
-            <div class="wrapper1">
-
-                <!--   Overlay alows for darkened screen when the notification is shown   -->
-                <div class="overlay"></div>
-
-                <!--   The notification itself   -->
-                <div class="dialog1" role="dialog" aria-labelledby="title" aria-describedby="content">
-                    
-                    <!--   Button for closing the notification   -->
-                    <button class="close1" aria-label="Close">x</button>
-
-                    <!--   Notification title   -->
-                    <h1 id="title">Information mismatch</h1>
-                        
-                    <!--   The content of the notification   -->
-                    <div id="content" class="content">
-                            
-                        <!--   Notification message / warning   -->
-                        <p>You have entered wrong information</p>
-                        
-                    </div>
-                    
+           
+    <template id="dialog-template1"> <!--    Template designed for user notificationb of an incorrect data entered    -->
+        <div class="wrapper1"><!--  Wrapper class hols all the items toegterh and places a container around the subject    -->
+            <div class="overlay"></div><!--   Overlay alows for darkened screen when the notification is shown   -->
+            <div class="dialog1" role="dialog" aria-labelledby="title" aria-describedby="content"><!--   The notification itself   -->
+                <button class="close1" aria-label="Close">x</button><!--   Button for closing the notification   -->
+                <h1 id="title">Information mismatch</h1><!--   Notification title   -->
+                <div id="content" class="content"><!--   The content of the notification   -->
+                    <p>You have entered wrong information</p> <!--   Notification message / warning   -->
                 </div>
-                
             </div>
-            
-        </template>
-    
-    
-    
-        
-    
+        </div>
+    </template>
 
-        <!--    RIGHT ANSWER     -->    
-    
-            <!--    Template designed for user notificationb of an incorrect data entered    -->
-        <template id="dialog-template2">
-
-            <!--  Wrapper class hols all the items toegterh and places a container around the subject    -->
-            <div class="wrapper2">
-
-                <!--   Overlay alows for darkened screen when the notification is shown   -->
-                <div class="overlay"></div>
-
-                <!--   The notification itself   -->
-                <div class="dialog2" role="dialog" aria-labelledby="title" aria-describedby="content">
-                    
-                    <!--   Button for closing the notification   -->
-                    <button class="close2" aria-label="Close">x</button>
-
-                    <!--   Notification title   -->
-                    <h1 id="title">Correct information</h1>
-                        
-                    <!--   The content of the notification   -->
-                    <div id="content" class="content">
-                            
-                        <!--   Notification message / warning   -->
-                        <p>Your information, has been saved, welcome!</p>
-                        
-                    </div>
-                    
+    <template id="dialog-template2"> <!--    Template designed for user notificationb of an incorrect data entered    -->
+        <div class="wrapper2"> <!--  Wrapper class hols all the items toegterh and places a container around the subject    -->
+            <div class="overlay"></div><!--   Overlay alows for darkened screen when the notification is shown   -->
+            <div class="dialog2" role="dialog" aria-labelledby="title" aria-describedby="content"><!--   The notification itself   -->
+                <button class="close2" aria-label="Close">x</button><!--   Button for closing the notification   -->
+                <h1 id="title">Correct information</h1><!--   Notification title   -->
+                <div id="contentID" class="content"><!--   The content of the notification   -->
+                    <p>Your information, has been saved, welcome!</p><!--   Notification message / warning   -->
                 </div>
-                
             </div>
-            
-        </template>
-        
-        
-    
+        </div>
+    </template>
 
-        <!--    EMPTY ANSWER     -->    
-    
-            <!--    Template designed for user notificationb of an incorrect data entered    -->
-        <template id="dialog-template3">
-
-            <!--  Wrapper class hols all the items toegterh and places a container around the subject    -->
-            <div class="wrapper3">
-
-                <!--   Overlay alows for darkened screen when the notification is shown   -->
-                <div class="overlay"></div>
-
-                <!--   The notification itself   -->
-                <div class="dialog3" role="dialog" aria-labelledby="title" aria-describedby="content">
-                    
-                    <!--   Button for closing the notification   -->
-                    <button class="close3" aria-label="Close">x</button>
-
-                    <!--   Notification title   -->
-                    <h1 id="title">Information matching!</h1>
-                        
-                    <!--   The content of the notification   -->
-                    <div id="content" class="content">
-                            
-                        <!--   Notification message / warning   -->
-                        <p>The details have been stored in the system</p>
-                        
-                    </div>
-                    
+    <template id="dialog-template3"><!--    Template designed for user notificationb of an incorrect data entered    -->
+        <div class="wrapper3"><!--  Wrapper class hols all the items toegterh and places a container around the subject    -->
+            <div class="overlay"></div><!--   Overlay alows for darkened screen when the notification is shown   -->
+            <div class="dialog3" role="dialog" aria-labelledby="title" aria-describedby="content"><!--   The notification itself   -->
+                <button class="close3" aria-label="Close">x</button><!--   Button for closing the notification   -->
+                <h1 id="title">Information matching!</h1> <!--   Notification title   -->
+                <div id="content" class="content"><!--   The content of the notification   -->
+                    <p>The details have been stored in the system</p><!--   Notification message / warning   -->
                 </div>
-                
             </div>
-            
-        </template>
-
+        </div>
+    </template>
 </body>
 </html>
