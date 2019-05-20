@@ -1,0 +1,116 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='PugJS, SASS, HandleBarsJS, Gulp JS integration')
+    meta(name='keywords', content='HTML,CSS,jQuery,JavaScript')
+    meta(name='author', content='Gelmis Bartulis')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src="js/script.js")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:300,400,600,700')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600')
+    link(rel='stylesheet', href='css/styles.css')
+    title PugJS, SASS, HandleBarsJS, Gulp JS integration 
+  body
+    div(class="overlay1")
+    video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" preload
+        source(src="videos/video.mp4" type="video/mp4")
+    div(id="fullContent")
+        div(id="signIn")
+            video(playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" preload
+                source src="videos/video.mp4"  type="video/mp4")
+            h2 Log In
+            form
+                br
+                br
+                input(type="email" id="usernameSignIn" name="usernameSignIn" placeholder="Email" autocomplete="off")
+                br
+                br
+                input(type="password" id="passwordSignIn" name="passwordSignIn" placeholder="Password" autocomplete="off")
+                br
+                br
+                button(type="button" id="submitSignIn" onclick="showSignIn()" value="submit" name="Submit") Login
+            p  Don't have an account yet? 
+            br
+            button(type="button" id="signUp"  name="Submit") Register
+        div(id="register" hidden)
+            div(id="goBackArrow1")
+                a(href="Assignment1.html")
+                    img(src="images/back.png" id="backArrow1" alt="Go back icon")
+            h2 Register
+            form(id="formInline")
+                table
+                    tr
+                        td
+                            input(id="lname" type="text" name="lname" placeholder="Last name" autocomplete="off")
+                    tr
+                        td
+                            input(input id="lname" type="text" name="lname" placeholder="Last name" autocomplete="off")
+                    tr
+                        td
+                            input(input id="email" type="text" placeholder="Email" name="email" autocomplete="off")
+                            img(src="images/logo.png" id="emailImg")
+                    tr
+                        td
+                            input(input id="dob" type="date" max="2010-01-31" name="dob" placeholder="Date of Birth" autocomplete="off")
+                    tr
+                        td
+                            input(input id="pass1" type="password" name="pass1" placeholder="Password"  autocomplete="off")
+                    tr
+                        td
+                            input(input id="pass2" type="password" name="pass2" placeholder="Confirm password" autocomplete="off")
+                div(id="formButtons")
+                    label(for="gen" id="labelGen") Please select gender
+                    br
+                    br
+                    label(for="gender" value= "Male") Male
+                    br
+                    br
+                    input(type="radio" class="radio" name="gender" value="male") 
+                    br
+                    br
+                    label(for="gender" value= "Female") Female
+                    br
+                    br           
+                    input(type="radio" class="radio" name="gender" value="female") 
+                    br
+                    br            
+                    label(for="gender" id="Other") Other
+                    br
+                    br           
+                    input(type="radio" class="radio" name="gender" value="other") 
+                    br
+                textarea(id="output" readonly rows=8)
+                button(id="submit" type="button" onclick="resultsFun(); return false") Submit
+        div(id="credits")
+            p 
+                a(href="https://www.gelmisb.com") Developed by Genbrah
+
+  template(id="dialog-template1")
+    div(class="wrapper1")
+        div(class="overlay")
+        div(class="dialog1" role="dialog" aria-labelledby="title" aria-describedby="content")
+            button(class="close1" aria-label="Close") x
+            h1(id="title") Information mismatch
+            div(id="content" class="content")
+                p You have entered wrong information
+
+  template(id="dialog-template2")
+    div(class="wrapper2")
+        div(class="overlay")
+        div(class="dialog2" role="dialog" aria-labelledby="title" aria-describedby="content")
+            button(class="close2" aria-label="Close") x
+            h1(id="title") Information mismatch
+            div(id="content" class="content")
+                p You have entered wrong information
+
+  template(id="dialog-template3")
+    div(class="wrapper3")
+        div(class="overlay")
+        div(class="dialog3" role="dialog" aria-labelledby="title" aria-describedby="content")
+            button(class="close3" aria-label="Close") x
+            h1(id="title") Information mismatch
+            div(id="content" class="content")
+                p You have entered wrong information

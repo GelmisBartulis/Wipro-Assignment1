@@ -1,3 +1,5 @@
+
+/*  Main config for global params */
 *,
 *::before,
 *::after {
@@ -6,43 +8,142 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
+html {
+    font-size: 16px;
+}
+
 @media screen and (min-width: 320px) {
-    html {font-size: calc(16px + 6 * ((100vw - 320px) / 680));}
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
 }
+
 @media screen and (min-width: 1000px) {
-    html {font-size: 22px;}
+  html {
+    font-size: 22px;
+  }
+    
 }
+
 body:before {
-    content: "";
-    position: fixed;
-    top: -10px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,.8);
-    -moz-box-shadow: 0px 0px 15px rgba(0,0,0,.8);
-    box-shadow: 0px 0px 15px rgba(0,0,0,.8);
-    z-index: 100;
+      content: "";
+      position: fixed;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,.8);
+          -moz-box-shadow: 0px 0px 15px rgba(0,0,0,.8);
+                     box-shadow: 0px 0px 15px rgba(0,0,0,.8);
+
+      z-index: 100;
 }
+
 body {
 	color: #f9f9f9;
-    background-color: #222;
 	text-align: justified;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     overflow-y: hidden;
     width: 100vh;
     width: 100vw;
 }
+
+
+body img {
+    opacity: 0.5;
+}
+
+
+body video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    z-index: -999;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    filter: grayscale(1);
+}
+
+body .overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -998;
+    overflow-y: hidden;
+}
+
 h3 {
     text-align: center;
     font-size: 2em;
 }
+
 table { 
     width:100%;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+table td {
+    width: 33%;
+    vertical-align: middle;
+}
+
+
+#signIn video  {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100vw;
+    overflow-y: hidden;
+    z-index: -999;
+    filter: grayscale(0);
+}
+
+
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.8);
+        transform: translatey(0px);
+        transform: rotate(0deg);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(-30px);
+        transform: rotate(180deg);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.8);
+		transform: translatey(0px);
+        transform: rotate(360deg);
+	}
+}
+
+
+
+
+
+
+
+
+/* Sign In page open up here */
+
 #signIn {
     width: 35%;
+    border: 1px outset #0086b3;
 	box-shadow: 0 15px 15px 2px rgba(0,0,0,0.9);
     margin-left:auto;
     margin-right: auto;
@@ -52,8 +153,11 @@ table {
     margin-top: 10%;
     padding: 4%;
     overflow: hidden;
-    background-color: #444;
+    filter: grayscale(0);
 }
+
+
+
 #signIn h2 {
     font-size: 35px;
     margin-bottom: 2%;
@@ -61,6 +165,8 @@ table {
     text-align: center;
     color: #f9f9f9;
 }
+
+
 #signIn input{
     color: #fff;
     border: none;
@@ -69,29 +175,37 @@ table {
     background-color: transparent;
     border-bottom: 2px solid #333;
     text-shadow: 2px 2px 2px #111;
-    box-shadow: 0px 0px 15px 0px transparent; 
+    box-shadow: 0 0 20px 10px transparent; 
     transition: 0.4s;
     border-radius: 10px;
 }
-#signIn input:hover{
+
+#signIn input:hover {
     border: none;
     font-size: 80%;
     padding: 1%;
     border-bottom: 2px solid #111;
     text-shadow: 2px 2px 2px #000;
 	background-color: rgb(204, 235, 255, 0.5);
-	box-shadow: 0px 0px 15px 0px #33adff;
+	box-shadow: 3px 3px 30px 10px #33adff;
     transition: 0.4s;
 }
+
+
 #signIn input::placeholder {
     color: #d1d1d1;
     text-shadow: 2px 2px 2px #111;
 }
+
+
 #signIn p {
     margin-top: 15%;
     text-shadow: 3px 3px 2px #000;
     color: #fff;
 }
+
+
+
 #submitSignIn {
     border:none;
 	border-bottom: 3px solid #33adff;
@@ -110,6 +224,7 @@ table {
     color: #ccebff;
     transition: 0.5s;
 }
+
 #signIn p button {
     border:none;
 	border-bottom: 3px solid #33adff;
@@ -128,6 +243,7 @@ table {
 	font-weight: 600;
     color: #ccebff;
 }
+
 #submitSignIn:hover, #signIn p button:hover {
 	background-color: #ccebff;
 	box-shadow: 3px 3px 30px 10px #33adff;
@@ -136,6 +252,31 @@ table {
     color: #404040;
     opacity: 0.8;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #goBackArrow1 img {
     z-index: -999;
     width: 10%;
@@ -144,11 +285,22 @@ table {
     margin: 0;
     transition: 0.3s;
 }
+
 #goBackArrow1 img:hover {
     transition: 0.3s;
     cursor: pointer;
     opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+/*    Register form   */
 #register {
     width: 38%;
     margin-top: 5%;
@@ -160,50 +312,45 @@ table {
     color: #f9f9f9;
     text-align: center;
     padding: 4%;
-    background-color: #444;
+
 }
+
 #register h2 {
     text-align: center !important;
     margin-bottom: 3%;
     padding-right: 10%;
 }
+
 #formInline {
     font-size: 80%;
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
 }
+
 #formInline table {
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
     width: 60%;
 }
+
+
 #formInline input {
     border: none;
     width: 80%;
     color: #fff;
-    font-size: 100%;
-    padding: 2%;
-    margin-top: 5%;
     background-color: transparent;
-    border-bottom: 2px solid #333;
-    text-shadow: 2px 2px 2px #111;
-    box-shadow: 0px 0px 15px 0px transparent; 
-    transition: 0.4s;
+    font-size: 100%;
     border-radius: 10px;
+    border-bottom: 1px solid #33adff;
+    padding: 2%;
 }
-#formInline input:hover {
-    border-bottom: 2px solid #111;
-    text-shadow: 2px 2px 2px #000;
-	background-color: rgb(204, 235, 255, 0.5);
-	box-shadow: 0px 0px 15px 0px #33adff;
-    transition: 0.4s;
-    border-radius: 10px;
-}
+
 #formInline input::placeholder {
     color: #999;
 }
+
 #submit {
 	margin-top: 10%;
 	border-radius: 10px;
@@ -220,7 +367,10 @@ table {
 	transition: 0.5s;
 	text-align: center;
 	align-content: center;
+
 }
+
+
 #submit:hover {
 	border: 2px outset #33adff;
 	background-color: #ccebff;
@@ -229,41 +379,87 @@ table {
 	width: 100%;
 	transition: 0.4s;
     color: #404040;
+
 }
 #submit:active {
     box-shadow:  0 1px 0 #6495ed;
     border: 2px inset #33adff; 
     top: 3px;
 }
+
+
+
+
 #formButtons {
     text-align: center;
     margin-top: 5%;
 }
+
 #formButtons input[type="radio"] {
     margin-right: 7%!important;
     width: 5% !important;
 	height: 20px;
     margin-top: 0; 
 }
+
+
+
+
+
+/*   TextArea stles   */
+#output {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    transition: 0.5s;
+    color: #d4d4d4;
+    background-color: #222;
+    border: 2px inset #ddd;
+    border-radius: 6px;
+    resize: none;
+    margin-top: 10%;
+}
+
+#output:hover {
+    background-color: #444;
+	box-shadow: 3px 3px 80px #33adff;
+    border: 2px outset #999999;
+    cursor: default;
+    color: #33adff;
+    transition: 0.5s;
+}
+
+
 #emailImg {
     width: 10%;
     vertical-align: middle;
     transition: 0.5s
 }
+
+
 .empty {
     background-color:#e6e6e6 !important;   
     color: #333;
     transition: 0.5s;
+
 }
 
 .error {
     background-color:#ff6666 !important;
     transition: 0.5s
+
 }
+
 .valid {
     background-color:#85e085 !important;   
     transition: 0.5s
+
 }
+
+
+
+
+
 #launch-dialog {
   background: tomato;
   border-radius: 4px;
@@ -272,6 +468,8 @@ table {
   padding: 0.5rem 1rem;
   position: static;
 }
+
+
 #launch-dialog1 {
   background: tomato;
   border-radius: 4px;
@@ -280,6 +478,7 @@ table {
   padding: 0.5rem 1rem;
   position: static;
 }
+
 #launch-dialog2 {
   background: green;
   border-radius: 4px;
@@ -288,6 +487,7 @@ table {
   padding: 0.5rem 1rem;
   position: static;
 }
+
 #launch-dialog3 {
   background: #123456;
   border-radius: 4px;
@@ -296,6 +496,8 @@ table {
   padding: 0.5rem 1rem;
   position: static;
 }
+
+
 .close1, .close2, .close3 {
     padding: 5%;
     float: inherit;
@@ -315,6 +517,8 @@ table {
     transition: 0.3s;
 
 }
+
+
 .close1:hover, .close2:hover, .close3:hover {
     background: #333;
     color: #787878;
@@ -322,13 +526,18 @@ table {
     transition: 0.3s;
     cursor: pointer;
 }
+
+
+
 .wrapper1 {
     opacity: 0;
     transition: visibility 0s, opacity 0.8s ease-in;
 }
+
 .wrapper1:not(.open) {
     visibility: hidden;
 }
+
 .wrapper1.open {
     align-items: center;
     display: flex;
@@ -341,14 +550,18 @@ table {
     bottom: 0;
     opacity: 1;
     visibility: visible;
+
 }
+
 .wrapper2 {
     opacity: 0;
     transition: visibility 0s, opacity 0.8s ease-in;
 }
+
 .wrapper2:not(.open) {
     visibility: hidden;
 }
+
 .wrapper2.open {
     align-items: center;
     display: flex;
@@ -362,14 +575,20 @@ table {
     bottom: 0;
     opacity: 1;
     visibility: visible;
+
 }
+
+
+
 .wrapper3 {
     opacity: 0;
     transition: visibility 0s, opacity 0.8s ease-in;
 }
+
 .wrapper3:not(.open) {
     visibility: hidden;
 }
+
 .wrapper3.open {
     align-items: center;
     display: flex;
@@ -382,7 +601,15 @@ table {
     bottom: 0;
     opacity: 1;
     visibility: visible;
+
 }
+
+
+
+
+
+
+
 .overlay {
     background: rgba(0, 0, 0, 0.7);
     height: 100%;
@@ -394,6 +621,7 @@ table {
     width: 100%;
     padding: 10%;
 }
+
 .dialog {
     background:  #ff9999;
     max-width: 600px;
@@ -402,6 +630,8 @@ table {
     padding: 3%;
     border-radius: 10px;
 }
+
+
 .dialog1 {
     background:  #ff9999;
     max-width: 600px;
@@ -410,14 +640,19 @@ table {
     padding: 3%;
     border-radius: 10px;
 }
+
+
 .dialog2 {
-    background:  #85e085;
+    background:  green;
     max-width: 600px;
     position: fixed;
     color: #444;
     padding: 3%;
     border-radius: 10px;
+    
 }
+
+
 .dialog3 {
     background:  #123456;
     max-width: 600px;
@@ -425,11 +660,34 @@ table {
     color: #444;
     padding: 3%;
     border-radius: 10px;
+    
 }
-#contentID {
-    font-size: 20px !important;
+
+
+
+
+.launch-dialog:focus {
+    border: 2px solid blue;
 }
+.launch-dialog1:focus {
+    border: 2px solid blue;
+}
+.launch-dialog2:focus {
+    border: 2px solid blue;
+}
+.launch-dialog3:focus {
+    border: 2px solid blue;
+}
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 415px) {
+    /*  Phones only  */
     body, #fullContent, #signIn, #register {
         width: 100%;
         height: 100vh;
@@ -441,22 +699,34 @@ table {
         margin: 0;
         font-size: 110%;
     }
+    
+    
     #selectMethod video, #signIn video  {
         position: absolute;
         width: 1900px;
         filter: grayscale(0);
     }
+    
+    
     #signIn {
         padding-top: 30%
     }
+    
+    
     #signIn p {
         margin-top: 30%;
     }
     #signIn p button {
         margin-top: 5%;
     }
+    
 }
+
+
+
+
 @media only screen and (max-width: 1024px) {
+    /*  Phones only  */
     body, #fullContent, #signIn, #register {
         width: 100%;
         height: 100vh;
@@ -469,21 +739,63 @@ table {
         font-size: 110%;
         border-radius: 0;
     }
+    
+
     #selectMethod video, #signIn video  {
         position: absolute;
         width: 1900px;
         filter: grayscale(0);
     }
+    
     #signIn {
         padding-top: 30%
     }
+    
+    
     #signIn p {
         margin-top: 30%;
     }
     #signIn p button {
         margin-top: 5%;
     }
+    
 }
+
+
+
 * {
   font-size: calc({slope}*100vw + {y-intercept}px);
 }
+
+
+#credits  {
+    float:right;
+    padding: auto;
+    font-family: 'Raleway', sans-serif !important;
+    height: 0px;
+    margin-top: 8%;
+    margin-right: 5%;
+    font-size: 70%;
+    color: #d4d4d4;
+    border: none;
+    text-shadow: 2px 2px 2px #111;
+    margin: 5% 5% 0 1%; 
+    animation: 3s float infinite;
+}
+
+
+#credits a {
+    color: #d4d4d4;
+    text-decoration: none;
+    padding: 1%;
+    transition: 0.5s;
+}
+
+#credits a:hover {
+    color: #fff;
+    text-shadow: 2px 2px 3px #33adff;
+    transition: 0.5s;
+}
+
+
+
